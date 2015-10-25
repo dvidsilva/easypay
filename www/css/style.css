@@ -1,1 +1,106 @@
 /* Empty. Add your own CSS if you like */
+ion-header-bar, .bar.bar-stable {
+  background: #dac7a8;
+  color: white;
+}
+.product-list  .bar.bar-stable {
+  background: transparent;
+}
+.bar.bar-stable .title.title {
+  color: white;
+}
+
+.home .button.button-positive,
+.product-list .button.button-positive {
+  background-color: #0c9f66;
+}
+ion-item .add {
+  background: none;
+  border: 1px solid #0c9e67;
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  font-size: 25px;
+  padding-bottom: 8px;
+  padding-left: 7px;
+  color: #0c9e67;
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.product-list ion-item .price {
+  color: #0c9e67;
+}
+.product-list ion-item .desc {
+  color: #a1a1a1;
+  font-size: 0.8em;
+}
+.product-list ion-item h2 {
+  color: #797979;
+}
+.list .item.item {
+  border: 2px solid transparent;
+  border-bottom: 2px solid #ebebeb;
+}
+.pane.menu {
+  width: 100%;
+  background: white;
+}
+.company-cover {
+  text-align: center;
+  min-height: 200px;
+  height: auto;
+  padding-top: 20px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.company-cover:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  background-image: url(../img/coffee-cover.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+.company-cover h1 {
+  color: white;
+  font-size: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.company-cover h2 {
+  color: #e1d1b7;
+  font-size: 30px;
+}
+.company-cover h3 {
+  color: #e1d1b7;
+  font-size: 36px;
+}
+.confirming .item, .confirming .add {
+  display: none;
+}
+.confirming .item.selected {
+  display: block;
+}
+.item.selected {
+  border: 2px solid #498fe1;
+  background: rgba(73, 143, 225, 0.41);
+}
+ion-list .divider {
+  display: block;
+  height: 2em;
+}

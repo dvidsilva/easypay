@@ -18,20 +18,23 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+        <ion-item menu-close href="#/app/pay">
+          Pay
+        </ion-item>
+        <ion-item menu-close href="#/app/payment-history">
+          History
         </ion-item>
         <ion-item menu-close href="#/profile/new-card">
-          Add Card
+          Payment Options
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item menu-close href="#/app/feed">
+          Feed
         </ion-item>
         <ion-item menu-close href="#/app/playlists">
           Playlists
+        </ion-item>
+        <ion-item menu-close ng-click="login()">
+          Login
         </ion-item>
       </ion-list>
     </ion-content>

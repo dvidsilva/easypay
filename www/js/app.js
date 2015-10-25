@@ -30,6 +30,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+  .state('app.pay', {
+    url: "/pay",
+    views: {
+      'menuContent': {
+        template: '<home></home>'
+      }
+    }
+  })
+  .state('app.menu', {
+    url: "/menu/:id",
+    views: {
+      'menuContent': {
+        template: '<menu></menu>'
+      }
+    }
+  })
+  .state('app.receipt', {
+    url: "/receipt/:id",
+    views: {
+      'menuContent': {
+        template: '<receipt></receipt>'
+      }
+    }
+  })
   .state('profile', {
     url : '/profile',
     abstract: true,
@@ -80,5 +104,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/pay');
 });
