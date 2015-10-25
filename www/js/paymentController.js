@@ -38,6 +38,13 @@ angular.module('starter').service('Payment', function ($http, $q) {
     });
   };
 
+  payment.getReceipts = function () {
+    return $http({
+      method : 'POST',
+      url : url + '/payment/get/all',
+    });
+  };
+
 
   payment.saveToken = function (data) {
     if (!data) {
@@ -183,7 +190,7 @@ angular.module('starter').directive('receipt', function () {
   template.push('    <p class="price">${{receipt.total * 0.1 | number:2}}</p>');
   template.push('   </ion-item>');
   template.push('   </ion-list>');
-  template.push('  <a class="button button-full button-positive" style="display: block; "href="#/">Home</a>');
+  template.push('  <a class="button button-full button-positive" style="display: block; "href="#/app/feed">Friends</a>');
   template.push('  </ion-content>');
   template.push('</ion-view>');
 
@@ -205,6 +212,42 @@ angular.module('starter').directive('receipt', function () {
     restrict : 'E'
   };
 });
+angular.module('starter').directive('history', function () {
+  var template = [];
+  template.push('<ion-view class="history" view-title="Menu - Earlz Coffee">');
+  template.push('  <ion-content>');
+  template.push('  <ion-list ng-repeat="c in receipt.list">');
+  template.push('   <ion-item  class="item item-thumbnail-left" >');
+  template.push('    <h2>Subtotal</h2>');
+  template.push('    <p class="price">${{c.total * 0.9 | number:2}}</p>');
+  template.push('   </ion-item>');
+  template.push('   <ion-item  class="item item-thumbnail-left" >');
+  template.push('    <h2>Tax</h2>');
+  template.push('    <p class="price">${{c.total * 0.1 | number:2}}</p>');
+  template.push('   </ion-item>');
+  template.push('   <div class="" style="margin: 1em 0; border-bottom: 1px solid black;">&nbsp;</div>');
+  template.push('   </ion-list>');
+  template.push('  <a class="button button-full button-positive" style="display: block; "href="#/app/feed">Friends</a>');
+  template.push('  </ion-content>');
+  template.push('</ion-view>');
 
+  var controller = function (Payment, $log, $stateParams, $state) {
+    var receipt = this;
+    receipt.list = [];
+    Payment.getReceipts().then( function (response) {
+      receipt.list = response.data;
+    });
+
+
+  };
+
+  return {
+    template : template.join(''),
+    controller : controller,
+    controllerAs : 'receipt',
+    replace: true,
+    restrict : 'E'
+  };
+});
 
 

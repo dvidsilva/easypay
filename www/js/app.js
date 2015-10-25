@@ -62,6 +62,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material'])
       }
     }
   })
+  .state('app.history', {
+    url: "/history",
+    views: {
+      'menuContent': {
+        template: '<history></history>'
+      }
+    }
+  })
   .state('profile', {
     url : '/profile',
     abstract: true,

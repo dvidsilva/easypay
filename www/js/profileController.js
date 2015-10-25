@@ -154,6 +154,7 @@ angular.module('starter').directive('feed', function () {
   template.push('         <img ng-src="{{c.Picture}}" class="pic">');
   template.push('         <h2>{{c.name | capitalize}} <small>at</small> {{c.location}} <small>{{c.time_ago}}</h2>');
   template.push('         <p>{{c.comment}}</p>');
+  template.push('         <p style="margin-top:1em;"><a >like</a> - <a>comment</a></p>');
   template.push('       </ion-item>');
   template.push('     </ion-list>');
   template.push('     <div style="margin: 13px; 0;"><a href="#/app/pay" style="display: block;" class="button button-full button-positive">Scan</a></div>');
