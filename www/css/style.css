@@ -104,3 +104,13 @@ ion-list .divider {
   display: block;
   height: 2em;
 }
+.feed img.pic.pic {
+  border-radius: 0;
+}
+.feed .item.item {
+  min-height: 100px;
+}
+.feed .item small {
+  font-size: 0.7em;
+  color: #666;
+}

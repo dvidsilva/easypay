@@ -31,6 +31,14 @@ angular.module('starter').service('User', function ($http, $q) {
     });
   };
 
+  user.getFeed = function () {
+    return $http({
+      method : 'POST',
+      url : url + '/user/feed/get',
+    });
+  };
+
+
   return user;
 });
 
@@ -100,7 +108,7 @@ angular.module('starter').directive('newCard', function () {
         if (responseObj.success) {
           // alert(responseObj.token);
           // do something with responseObj.token
-          angular.extend(responseObj, {lastDigits : card.new.cardNumber.split(" ").pop(), 
+          angular.extend(responseObj, {lastDigits : card.new.cardNumber.split(" ").pop(),
                          firstName : card.new.firstName,
                          lastName : card.new.lastName,
                          zipCode : card.new.zipCode,
@@ -137,3 +145,38 @@ angular.module('starter').directive('newCard', function () {
   };
 });
 
+angular.module('starter').directive('feed', function () {
+  var template = [];
+  template.push('<ion-view view-title="Friends Activity">');
+  template.push('  <ion-content>');
+  template.push('     <ion-list class="feed">');
+  template.push('       <ion-item ng-repeat="c in feed.list" class="item item-thumbnail-left">');
+  template.push('         <img ng-src="{{c.Picture}}" class="pic">');
+  template.push('         <h2>{{c.name | capitalize}} <small>at</small> {{c.location}} <small>{{c.time_ago}}</h2>');
+  template.push('         <p>{{c.comment}}</p>');
+  template.push('       </ion-item>');
+  template.push('     </ion-list>');
+  template.push('     <div style="margin: 13px; 0;"><a href="#/app/pay" style="display: block;" class="button button-full button-positive">Scan</a></div>');
+  template.push('  </ion-content>');
+  template.push('</ion-view>');
+
+  var controller = function (User) {
+    var feed = this;
+
+    feed.list = [];
+
+    User.getFeed().then(function (response) {
+      feed.list = response.data;
+    });
+
+    return feed;
+  };
+  return {
+    template : template.join(''),
+    controller : controller,
+    controllerAs : 'feed',
+    replace: true,
+    restrict : 'E'
+  };
+
+});

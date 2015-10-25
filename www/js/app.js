@@ -38,6 +38,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material'])
       }
     }
   })
+  .state('app.feed', {
+    url: "/feed",
+    views: {
+      'menuContent': {
+        template: '<feed></feed>'
+      }
+    }
+  })
   .state('app.menu', {
     url: "/menu/:id",
     views: {
